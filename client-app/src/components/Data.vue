@@ -8,40 +8,50 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Value</th>
-              <th>Date Time</th>
+              <th>Data1</th>
+              <th>Data2</th>
+              <th>Data3</th>
+              <th>Data4</th>
+              <th>Data5</th>
               <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="record in records" :key="record.id">
-              <td>{{ record.id }}</td>
-              <td>{{ record.name }}</td>
-              <td>{{ record.value }}</td>
-              <td>{{ record.dateTime }}</td>
+            <tr v-for="data in dataItems" :key="data.id">
+              <td>{{ data.id }}</td>
+              <td>{{ data.data1 }}</td>
+              <td>{{ data.data2 }}</td>
+              <td>{{ data.data3 }}</td>
+              <td>{{ data.data4 }}</td>
+              <td>{{ data.data5 }}</td>
               <td class="text-right">
-                <a href="#" @click.prevent="updateFoodRecord(record)">Edit</a> -
-                <a href="#" @click.prevent="deleteFoodRecord(record.id)">Delete</a>
+                <a href="#" @click.prevent="updateData(data)">Edit</a> -
+                <a href="#" @click.prevent="deleteData(data.id)">Delete</a>
               </td>
             </tr>
           </tbody>
         </table>
       </b-col>
       <b-col lg="3">
-        <b-card :title="(model.id ? 'Edit Food ID#' + model.id : 'New Food Record')">
-          <form @submit.prevent="createFoodRecord">
-            <b-form-group label="Name">
-              <b-form-input type="text" v-model="model.name"></b-form-input>
+        <b-card :title="(model.id ? 'Edit Data ID#' + model.id : 'New Data')">
+          <form @submit.prevent="createData">
+            <b-form-group label="Data 1">
+              <b-form-input type="text" v-model="model.data1"></b-form-input>
             </b-form-group>
-            <b-form-group label="Value">
-              <b-form-input rows="4" v-model="model.value" type="number"></b-form-input>
+            <b-form-group label="Data 2">
+              <b-form-input type="text" v-model="model.data2"></b-form-input>
             </b-form-group>
-            <b-form-group label="Date Time">
-              <b-form-input rows="4" v-model="model.dateTime" type="datetime-local"></b-form-input>
+            <b-form-group label="Data 3">
+              <b-form-input type="text" v-model="model.data3"></b-form-input>
+            </b-form-group>
+            <b-form-group label="Data 4">
+              <b-form-input type="text" v-model="model.data4"></b-form-input>
+            </b-form-group>
+            <b-form-group label="Data 5">
+              <b-form-input type="text" v-model="model.data5"></b-form-input>
             </b-form-group>
             <div>
-              <b-btn type="submit" variant="success">Save Record</b-btn>
+              <b-btn type="submit" variant="success">Save Data</b-btn>
             </div>
           </form>
         </b-card>
@@ -57,7 +67,7 @@
     data() {
       return {
         loading: false,
-        records: [],
+        dataItems: [],
         model: {}
       };
     },
@@ -69,16 +79,16 @@
         this.loading = true
 
         try {
-          this.records = await api.getAll()
+          this.dataItems = await api.getAll()
         } finally {
           this.loading = false
         }
       },
-      async updateFoodRecord(foodRecord) {
+      async updateData(data) {
         // We use Object.assign() to create a new (separate) instance
-        this.model = Object.assign({}, foodRecord)
+        this.model = Object.assign({}, data)
       },
-      async createFoodRecord() {
+      async createData() {
         const isUpdate = !!this.model.id;
 
         if (isUpdate) {
@@ -93,7 +103,7 @@
         // Fetch all records again to have latest data
         await this.getAll()
       },
-      async deleteFoodRecord(id) {
+      async deleteData(id) {
         if (confirm('Are you sure you want to delete this record?')) {
           // if we are editing a food record we deleted, remove it from the form
           if (this.model.id === id) {
