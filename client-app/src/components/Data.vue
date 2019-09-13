@@ -2,61 +2,36 @@
   <div class="container-fluid mt-4">
     <h1 class="h1">Data list</h1>
     <b-alert :show="loading" variant="info">Loading...</b-alert>
-    <b-row>
-      <b-col>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Data1</th>
-              <th>Data2</th>
-              <th>Data3</th>
-              <th>Data4</th>
-              <th>Data5</th>
-              <th>&nbsp;</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="data in dataItems" :key="data.id">
-              <td>{{ data.id }}</td>
-              <td>{{ data.data1 }}</td>
-              <td>{{ data.data2 }}</td>
-              <td>{{ data.data3 }}</td>
-              <td>{{ data.data4 }}</td>
-              <td>{{ data.data5 }}</td>
-              <td class="text-right">
-                <a href="#" @click.prevent="updateData(data)">Edit</a> -
-                <a href="#" @click.prevent="deleteData(data.id)">Delete</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </b-col>
-      <b-col lg="3">
-        <b-card :title="(model.id ? 'Edit Data ID#' + model.id : 'New Data')">
-          <form @submit.prevent="createData">
-            <b-form-group label="Data 1">
-              <b-form-input type="text" v-model="model.data1"></b-form-input>
-            </b-form-group>
-            <b-form-group label="Data 2">
-              <b-form-input type="text" v-model="model.data2"></b-form-input>
-            </b-form-group>
-            <b-form-group label="Data 3">
-              <b-form-input type="text" v-model="model.data3"></b-form-input>
-            </b-form-group>
-            <b-form-group label="Data 4">
-              <b-form-input type="text" v-model="model.data4"></b-form-input>
-            </b-form-group>
-            <b-form-group label="Data 5">
-              <b-form-input type="text" v-model="model.data5"></b-form-input>
-            </b-form-group>
-            <div>
-              <b-btn type="submit" variant="success">Save Data</b-btn>
-            </div>
-          </form>
-        </b-card>
-      </b-col>
-    </b-row>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Data1</th>
+                <th>Data2</th>
+                <th>Data3</th>
+                <th>Data4</th>
+                <th>Data5</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="data in dataItems" :key="data.id">
+                <td>{{ data.id }}</td>
+                <td>{{ data.data1 }}</td>
+                <td>{{ data.data2 }}</td>
+                <td>{{ data.data3 }}</td>
+                <td>{{ data.data4 }}</td>
+                <td>{{ data.data5 }}</td>
+                <td class="text-right">
+                  <a href="#" @click.prevent="updateData(data)">Edit</a> -
+                  <a href="#" @click.prevent="deleteData(data.id)">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
   </div>
 </template>
 
