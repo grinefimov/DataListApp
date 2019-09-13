@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="form">
 	<h1>{{ title }}</h1>
   </div>
 </template>
@@ -8,7 +8,7 @@
 export default {
   data () {
 	  return {
-  	  title: 'Hello'
+  	  title: 'Arbitrary form'
 	  }
   }
 }
