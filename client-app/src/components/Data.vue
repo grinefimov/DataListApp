@@ -5,35 +5,11 @@
       <b-form-input type="text" placeholder="Search"></b-form-input>
     </b-form-group>
     <b-alert :show="loading" variant="info">Loading...</b-alert>
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Data 1</th>
-                <th>Data 2</th>
-                <th>Data 3</th>
-                <th>Data 4</th>
-                <th>Data 5</th>
-                <th>&nbsp;</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="data in dataItems" :key="data.id">
-                <td>{{ data.id }}</td>
-                <td>{{ data.data1 }}</td>
-                <td>{{ data.data2 }}</td>
-                <td>{{ data.data3 }}</td>
-                <td>{{ data.data4 }}</td>
-                <td>{{ data.data5 }}</td>
-                <td class="text-right">
-                  <a href="#" @click.prevent="deleteData(data.id)">Delete</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
+      <b-table class="table-striped text-nowrap"
+        :items="dataItems"
+        :fields="fields"
+        responsive>
+      </b-table>
   </div>
 </template>
 
@@ -44,6 +20,14 @@
     data() {
       return {
         loading: false,
+        fields: [
+          { key: 'id', label: 'ID', sortable: true },
+          { key: 'data1', label: 'Data 1', sortable: true },
+          { key: 'data2', label: 'Data 2', sortable: true },
+          { key: 'data3', label: 'Data 3', sortable: true },
+          { key: 'data4', label: 'Data 4', sortable: true },
+          { key: 'data5', label: 'Data 5', sortable: true }
+        ],
         dataItems: [],
       };
     },
@@ -58,12 +42,6 @@
           this.dataItems = await api.getAll()
         } finally {
           this.loading = false
-        }
-      },
-      async deleteData(id) {
-        if (confirm('Are you sure you want to delete this record?')) {
-          await api.delete(id)
-          await this.getAll()
         }
       }
     }
