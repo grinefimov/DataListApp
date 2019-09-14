@@ -5,11 +5,11 @@
           <b-form-group label="Data 1" description="Description">
             <b-form-input v-model="model.data1" type="text" required placeholder="Enter data" :state="data1Validation"></b-form-input>
             <b-form-invalid-feedback :state="data1Validation">
-        Data 1 must be 2-20 characters long.
-      </b-form-invalid-feedback>
-      <b-form-valid-feedback :state="data1Validation">
-        Looks Good.
-      </b-form-valid-feedback>
+              Data 1 must be 2-20 characters long.
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback :state="data1Validation">
+              Looks Good.
+            </b-form-valid-feedback>
           </b-form-group>
           <b-form-group label="Data 2">
             <b-form-select v-model="model.data2" required>

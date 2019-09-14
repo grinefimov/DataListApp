@@ -24,7 +24,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Data>> Get(string id)
+        public async Task<ActionResult<Data>> Get(int id)
         {
             return await _dbContext.DataItems.FindAsync(id);
         }
@@ -55,7 +55,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Delete(int id)
         {
             var entity = await _dbContext.DataItems.FindAsync(id);
 

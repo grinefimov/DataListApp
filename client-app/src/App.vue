@@ -2,14 +2,16 @@
   <div id="app">
     <header>
       <b-navbar toggleable="sm" type="dark" variant="dark">
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        <b-navbar-brand to="/">Vue App</b-navbar-brand>
-        <b-collapse is-nav id="nav-collapse">
-          <b-navbar-nav>
-            <b-nav-item to="/Form">Form</b-nav-item>
-            <b-nav-item to="/Data">Data</b-nav-item>
-          </b-navbar-nav>
-        </b-collapse>
+        <div class="container">
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+            <b-navbar-brand to="/">Vue App</b-navbar-brand>
+            <b-collapse is-nav id="nav-collapse">
+              <b-navbar-nav>
+                <b-nav-item to="/Form">Form</b-nav-item>
+                <b-nav-item to="/Data">Data</b-nav-item>
+              </b-navbar-nav>
+            </b-collapse>
+        </div>
       </b-navbar>
     </header>
     <main>
