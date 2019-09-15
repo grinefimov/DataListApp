@@ -4,11 +4,11 @@
       <b-navbar toggleable="sm" type="dark" variant="dark">
         <div class="container">
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-            <b-navbar-brand to="/">Vue App</b-navbar-brand>
+            <b-navbar-brand to="/Form">Vue App</b-navbar-brand>
             <b-collapse is-nav id="nav-collapse">
               <b-navbar-nav>
                 <b-nav-item to="/Form">Form</b-nav-item>
-                <b-nav-item to="/Data">Data</b-nav-item>
+                <b-nav-item to="/List">List</b-nav-item>
               </b-navbar-nav>
             </b-collapse>
         </div>
@@ -21,13 +21,10 @@
 </template>
 
 <script>
-
   export default {
     name: 'app',
     data () {
-      return {
-        user: null
-      }
+      return {}
     }
   }
 </script>
@@ -42,16 +39,5 @@
 
 main {
   margin-top: 40px;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
 }
 </style>

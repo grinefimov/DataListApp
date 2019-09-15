@@ -1,6 +1,6 @@
 <template>
   <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-    <h1 class="h1">Data list</h1>
+    <h1 class="h1">List of {{ this.$root.$data.context.dataPluralName }}</h1>
     <div class="row">
       <div class="col-sm-6">
         <b-form-group>
@@ -55,11 +55,11 @@
         loading: false,
         fields: [
           { key: 'id', label: 'ID', sortable: true },
-          { key: 'data1', label: 'Data 1', sortable: true },
-          { key: 'data2', label: 'Data 2', sortable: true },
-          { key: 'data3', label: 'Data 3', sortable: true },
-          { key: 'data4', label: 'Data 4', sortable: true },
-          { key: 'data5', label: 'Data 5', sortable: true }
+          { key: 'data1', label: this.$root.$data.context.dataNames[0], sortable: true },
+          { key: 'data2', label: this.$root.$data.context.dataNames[1], sortable: true },
+          { key: 'data3', label: this.$root.$data.context.dataNames[2], sortable: true },
+          { key: 'data4', label: this.$root.$data.context.dataNames[3], sortable: true },
+          { key: 'data5', label: this.$root.$data.context.dataNames[4], sortable: true }
         ],
         items: [],
         dataItems: [],

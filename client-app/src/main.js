@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 
@@ -13,10 +11,24 @@ Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  data: {
+    context: {
+      dataName: "Order",
+      dataNames: [
+        "Field name 1",
+        "Field name 2",
+        "Field name 3",
+        "Field name 4",
+        "Field name 5"
+      ],
+      data2Options: [ "1", "2", "3" ],
+      data4Options: [ "A", "B", "C" ],
+      data5Text: 'Checkbox'
+    }
+  }
 })

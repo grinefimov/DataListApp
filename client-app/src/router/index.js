@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Form from '@/components/Form'
-import Data from '@/components/Data'
+import List from '@/components/List'
 
 Vue.use(Router)
 
@@ -18,9 +18,9 @@ export default new Router({
       component: Form
     },
     {
-      path: '/Data',
-      name: 'Data',
-      component: Data
+      path: '/List',
+      name: 'List',
+      component: List
     }
   ]
 })
