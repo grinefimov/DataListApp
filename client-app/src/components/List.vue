@@ -8,7 +8,7 @@
         </b-form-group>
       </div>
       <div class="col-sm-2 mb-3">
-          <b-btn type="submit" variant="primary" v-on:click="searchItems">Search</b-btn>
+        <b-btn type="submit" variant="primary" v-on:click="searchItems">Search</b-btn>
       </div>
       <div class="col-sm-4 mb-3">
         <b-form inline>
@@ -28,16 +28,17 @@
       aria-controls="my-table"
     ></b-pagination>
     <b-alert :show="loading" variant="info">Loading...</b-alert>
-      <b-table class="table-striped text-nowrap"
-        :items="items"
-        :fields="fields"
-        :per-page="perPage"
-        :current-page="currentPage"
-        responsive
-        bordered
-        small>
-      </b-table>
-      <b-pagination
+    <b-table
+      class="table-striped text-nowrap"
+      :items="items"
+      :fields="fields"
+      :per-page="perPage"
+      :current-page="currentPage"
+      responsive
+      bordered
+      small
+    ></b-table>
+    <b-pagination
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
@@ -47,60 +48,89 @@
 </template>
 
 <script>
-  import api from '@/DataApiService';
+import api from "@/DataApiService";
 
-  export default {
-    data() {
-      return {
-        loading: false,
-        fields: [
-          { key: 'id', label: 'ID', sortable: true },
-          { key: 'data1', label: this.$root.$data.context.dataNames[0], sortable: true },
-          { key: 'data2', label: this.$root.$data.context.dataNames[1], sortable: true },
-          { key: 'data3', label: this.$root.$data.context.dataNames[2], sortable: true },
-          { key: 'data4', label: this.$root.$data.context.dataNames[3], sortable: true },
-          { key: 'data5', label: this.$root.$data.context.dataNames[4], sortable: true }
-        ],
-        items: [],
-        dataItems: [],
-        perPage: 25,
-        currentPage: 1,
-        searchText: ''
-      };
-    },
-    async created() {
-      this.getAll();
-    },
-    computed: {
-      rows() {
-        return this.items.length
+export default {
+  data() {
+    return {
+      loading: false,
+      fields: [
+        {
+          key: this.$root.$data.context.columnNames[0],
+          label: "ID",
+          sortable: true
+        },
+        {
+          key: this.$root.$data.context.columnNames[1],
+          label: this.$root.$data.context.dataNames[0],
+          sortable: true
+        },
+        {
+          key: this.$root.$data.context.columnNames[2],
+          label: this.$root.$data.context.dataNames[1],
+          sortable: true
+        },
+        {
+          key: this.$root.$data.context.columnNames[3],
+          label: this.$root.$data.context.dataNames[2],
+          sortable: true
+        },
+        {
+          key: this.$root.$data.context.columnNames[4],
+          label: this.$root.$data.context.dataNames[3],
+          sortable: true
+        },
+        {
+          key: this.$root.$data.context.columnNames[5],
+          label: this.$root.$data.context.dataNames[4],
+          sortable: true
+        }
+      ],
+      items: [],
+      dataItems: [],
+      perPage: 25,
+      currentPage: 1,
+      searchText: ""
+    };
+  },
+  async created() {
+    this.getAll();
+  },
+  computed: {
+    rows() {
+      return this.items.length;
+    }
+  },
+  methods: {
+    async getAll() {
+      this.loading = true;
+
+      try {
+        this.dataItems = await api.getAll();
+      } finally {
+        this.items = this.dataItems;
+        this.loading = false;
       }
     },
-    methods: {
-      async getAll() {
-        this.loading = true
-
-        try {
-          this.dataItems = await api.getAll()
-        } finally {
-          this.items = this.dataItems;
-          this.loading = false
-        }
-      },
-      searchItems() {
-        if(this.searchText == '') {
-          this.items = this.dataItems;
-          return;
-        }
-
-        var result = [];
-
-        result = this.dataItems.filter(obj =>
-          Object.keys(obj).some(key =>
-            obj[key].toString().toLowerCase().includes(this.searchText.toLowerCase())));
-
-        this.items = result;
+    searchItems() {
+      if (this.searchText == "") {
+        this.items = this.dataItems;
+        return;
       }
+
+      var result = [];
+
+      result = this.dataItems.filter(obj =>
+        Object.keys(obj).some(key =>
+          obj[key]
+            .toString()
+            .toLowerCase()
+            .includes(this.searchText.toLowerCase())
+        )
+      );
+
+      this.items = result;
     }
   }
+};
 </script>

@@ -3,14 +3,14 @@
     <header>
       <b-navbar toggleable="sm" type="dark" variant="dark">
         <div class="container">
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-            <b-navbar-brand to="/Form">Vue App</b-navbar-brand>
-            <b-collapse is-nav id="nav-collapse">
-              <b-navbar-nav>
-                <b-nav-item to="/Form">Form</b-nav-item>
-                <b-nav-item to="/List">List</b-nav-item>
-              </b-navbar-nav>
-            </b-collapse>
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+          <b-navbar-brand to="/">Vue App</b-navbar-brand>
+          <b-collapse is-nav id="nav-collapse">
+            <b-navbar-nav>
+              <b-nav-item to="/Form">Form</b-nav-item>
+              <b-nav-item to="/List">List</b-nav-item>
+            </b-navbar-nav>
+          </b-collapse>
         </div>
       </b-navbar>
     </header>
@@ -21,17 +21,17 @@
 </template>
 
 <script>
-  export default {
-    name: 'app',
-    data () {
-      return {}
-    }
+export default {
+  name: "app",
+  data() {
+    return {};
   }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
