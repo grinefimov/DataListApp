@@ -5,11 +5,34 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import router from './router'
+import Router from 'vue-router'
+import Form from '@/components/Form'
+import List from '@/components/List'
 
 Vue.use(BootstrapVue);
 
+Vue.use(Router)
+
 Vue.config.productionTip = false
+
+const router = new Router({
+  routes: [
+    {
+      path: '/Form',
+      component: Form,
+      meta: {
+        title: 'Form',
+      }
+    },
+    {
+      path: '/List',
+      component: List,
+      meta: {
+        title: 'List',
+      }
+    }
+  ]
+})
 
 new Vue({
   el: '#app',
@@ -19,16 +42,16 @@ new Vue({
   data: {
     context: {
       dataName: "Order",
-      dataNames: [
-        "Field name 1",
-        "Field name 2",
-        "Field name 3",
-        "Field name 4",
-        "Field name 5"
-      ],
+      dataPluralName: "Orders",
+      dataNames: [ "Data 1", "Data 2", "Data 3", "Data 4", "Data 5" ],
       data2Options: [ "1", "2", "3" ],
       data4Options: [ "A", "B", "C" ],
       data5Text: 'Checkbox'
     }
   }
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
 })
