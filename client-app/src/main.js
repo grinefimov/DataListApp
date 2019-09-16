@@ -17,26 +17,25 @@ Vue.use(Router)
 Vue.config.productionTip = false
 
 const router = new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       component: Home,
       meta: {
-        title: 'Home',
+        title: 'Home | Contacts App',
       }
     },
     {
       path: '/New',
       component: New,
       meta: {
-        title: 'New',
+        title: 'New | Contacts App',
       }
     },
     {
       path: '/List',
       component: List,
       meta: {
-        title: 'List',
+        title: 'List | Contacts App',
       }
     }
   ]
@@ -52,8 +51,8 @@ new Vue({
       dataName: 'Contact',
       dataPluralName: 'Contacts',
       columnNames: ['id', 'data1', 'data2', 'data3', 'data4', 'data5'],
-      dataNames: ['Contact name', 'Class', 'Desirable date', 'Location', 'Openness'],
-      data2Options: ['Class A', 'Class B', 'Class C'],
+      dataNames: ['Name', 'Class', 'Date', 'Location', 'Openness'],
+      data2Options: ['Class A', 'Class B', 'Class C', 'Class D'],
       data4Options: ['America', 'Eurasia', 'Another'],
       data5Text: 'Open contact'
     }
