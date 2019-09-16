@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import Router from 'vue-router'
-import Form from '@/components/Form.vue'
+import Home from '@/components/Home.vue'
+import New from '@/components/New.vue'
 import List from '@/components/List.vue'
 
 Vue.use(BootstrapVue);
@@ -19,16 +20,16 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      component: Form,
+      component: Home,
       meta: {
-        title: 'Form',
+        title: 'Home',
       }
     },
     {
-      path: '/Form',
-      component: Form,
+      path: '/New',
+      component: New,
       meta: {
-        title: 'Form',
+        title: 'New',
       }
     },
     {
@@ -48,13 +49,13 @@ new Vue({
   components: { App },
   data: {
     context: {
-      dataName: 'Order',
-      dataPluralName: 'Orders',
+      dataName: 'Contact',
+      dataPluralName: 'Contacts',
       columnNames: ['id', 'data1', 'data2', 'data3', 'data4', 'data5'],
-      dataNames: ['Data 1', 'Data 2', 'Data 3', 'Data 4', 'Data 5'],
-      data2Options: ['1', '2', '3'],
-      data4Options: ['A', 'B', 'C'],
-      data5Text: 'Checkbox'
+      dataNames: ['Contact name', 'Class', 'Desirable date', 'Location', 'Openness'],
+      data2Options: ['Class A', 'Class B', 'Class C'],
+      data4Options: ['America', 'Eurasia', 'Another'],
+      data5Text: 'Open contact'
     }
   }
 })

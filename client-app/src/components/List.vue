@@ -2,16 +2,16 @@
   <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
     <h1 class="h1">List of {{ this.$root.$data.context.dataPluralName }}</h1>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-6 pr-sm-0">
         <b-form-group>
           <b-form-input v-model="searchText" type="text" placeholder="Search"></b-form-input>
         </b-form-group>
       </div>
-      <div class="col-sm-2 mb-3">
+      <div class="col-sm-2 mb-2">
         <b-btn type="submit" variant="primary" v-on:click="searchItems">Search</b-btn>
       </div>
       <div class="col-sm-4 mb-3">
-        <b-form inline>
+        <b-form inline class="float-sm-right">
           <label class="mr-2">Show:</label>
           <b-form-select v-model="perPage">
             <option value="10">10</option>

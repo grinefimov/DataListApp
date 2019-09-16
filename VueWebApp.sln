@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{20431B5B-E9E7-49C8-8FA1-2803F7B3C41F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularWebApplication", "..\AngularWebApplication\AngularWebApplication\AngularWebApplication.csproj", "{5BF019BD-5AFB-4705-ADC9-129F5286AF3B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrinWebApp", "..\GrinWebApp\GrinWebApp\GrinWebApp.csproj", "{41626A95-3348-4969-B704-AD81DBC6F5B3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{20431B5B-E9E7-49C8-8FA1-2803F7B3C41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20431B5B-E9E7-49C8-8FA1-2803F7B3C41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20431B5B-E9E7-49C8-8FA1-2803F7B3C41F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BF019BD-5AFB-4705-ADC9-129F5286AF3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BF019BD-5AFB-4705-ADC9-129F5286AF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BF019BD-5AFB-4705-ADC9-129F5286AF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BF019BD-5AFB-4705-ADC9-129F5286AF3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{41626A95-3348-4969-B704-AD81DBC6F5B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41626A95-3348-4969-B704-AD81DBC6F5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41626A95-3348-4969-B704-AD81DBC6F5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41626A95-3348-4969-B704-AD81DBC6F5B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

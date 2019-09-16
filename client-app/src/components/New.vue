@@ -44,7 +44,7 @@
           >{{ this.$root.$data.context.data5Text }}</b-form-checkbox>
         </b-form-group>
         <div>
-          <b-btn type="submit" variant="primary">Save {{ this.$root.$data.context.dataName }}</b-btn>
+          <b-btn type="submit" variant="primary" class="mr-2">Save {{ this.$root.$data.context.dataName }}</b-btn>
           <b-btn type="button" variant="secondary" v-on:click="resetForm">Reset</b-btn>
         </div>
       </b-form>
