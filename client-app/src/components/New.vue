@@ -71,13 +71,12 @@ export default {
   data() {
     return {
       model: { data1: "", data2: null, data5: "false" },
-      dataSaved: null,
-      events: []
+      dataSaved: null
     };
   },
   computed: {
     data1Validation() {
-      if (this.model.data1 == "") return null;
+      if (this.model.data1 === "") return null;
       return this.model.data1.length >= 2 && this.model.data1.length <= 20;
     }
   },
@@ -91,7 +90,7 @@ export default {
 
         this.model = { data1: "", data2: null, data5: "false" };
       } finally {
-        if (this.dataSaved != true) this.dataSaved = false;
+        if (this.dataSaved !== true) this.dataSaved = false;
       }
     },
     creatingNewData() {

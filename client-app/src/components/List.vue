@@ -113,7 +113,7 @@ export default {
       }
     },
     searchItems() {
-      if (this.searchText == "") {
+      if (this.searchText === "") {
         this.items = this.dataItems;
         return;
       }
