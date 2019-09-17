@@ -18,27 +18,29 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Data>>> Get()
+        public async Task<ActionResult<List<Data>>> GetDataListAsync()
         {
             return await _dbContext.DataItems.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Data>> Get(int id)
+        public async Task<ActionResult<Data>> GetDataAsync(int id)
         {
             return await _dbContext.DataItems.FindAsync(id);
         }
 
         [HttpPost]
-        public async Task Post(Data model)
+        public async Task<ActionResult> PostDataAsync(Data model)
         {
             await _dbContext.AddAsync(model);
 
             await _dbContext.SaveChangesAsync();
+
+            return Ok();
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, Data model)
+        public async Task<ActionResult> PutDataAsync(int id, Data model)
         {
             var exists = await _dbContext.DataItems.AnyAsync(f => f.ID == id);
             if (!exists)
@@ -54,7 +56,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteDataAsync(int id)
         {
             var entity = await _dbContext.DataItems.FindAsync(id);
 
