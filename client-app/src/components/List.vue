@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import api from "@/DataApiService";
+import api from '@/DataApiService';
 
 export default {
   data() {
@@ -57,7 +57,7 @@ export default {
       fields: [
         {
           key: this.$root.$data.context.columnNames[0],
-          label: "ID",
+          label: 'ID',
           sortable: true
         },
         {
@@ -90,7 +90,7 @@ export default {
       dataItems: [],
       perPage: 25,
       currentPage: 1,
-      searchText: ""
+      searchText: ''
     };
   },
   async created() {
@@ -113,7 +113,7 @@ export default {
       }
     },
     searchItems() {
-      if (this.searchText === "") {
+      if (this.searchText === '') {
         this.items = this.dataItems;
         return;
       }

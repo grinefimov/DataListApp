@@ -65,18 +65,18 @@
 </template>
 
 <script>
-import api from "@/DataApiService";
+import api from '@/DataApiService';
 
 export default {
   data() {
     return {
-      model: { data1: "", data2: null, data5: "false" },
+      model: { data1: '', data2: null, data5: 'false' },
       dataSaved: null
     };
   },
   computed: {
     data1Validation() {
-      if (this.model.data1 === "") return null;
+      if (this.model.data1 === '') return null;
       return this.model.data1.length >= 2 && this.model.data1.length <= 20;
     }
   },
@@ -88,7 +88,7 @@ export default {
 
         this.dataSaved = true;
 
-        this.model = { data1: "", data2: null, data5: "false" };
+        this.model = { data1: '', data2: null, data5: 'false' };
       } finally {
         if (this.dataSaved !== true) this.dataSaved = false;
       }
@@ -97,7 +97,7 @@ export default {
       this.dataSaved = null;
     },
     resetForm() {
-      this.model = { data1: "", data2: null, data5: "false" };
+      this.model = { data1: '', data2: null, data5: 'false' };
       this.dataSaved = null;
     }
   }
